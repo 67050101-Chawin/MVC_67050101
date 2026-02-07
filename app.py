@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import random
 from datetime import datetime
-from models.database import load_db, save_db
+from database import load_db, save_db
 from models.classes import Claim, LowIncomeClaim, HighIncomeClaim
 
 app = Flask(__name__)
