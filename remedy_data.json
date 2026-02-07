@@ -1,0 +1,137 @@
+{
+    "users": [
+        {
+            "username": "admin",
+            "password": "123321",
+            "role": "officer",
+            "name": "Admin Yai"
+        },
+        {
+            "username": "user",
+            "password": "123456",
+            "role": "citizen",
+            "name": "Mr. Somchai"
+        }
+    ],
+    "claimants": [
+        {
+            "id": 101,
+            "name": "นาย จน",
+            "surname": "จริงใจ",
+            "income": 4000,
+            "type": "รายได้น้อย"
+        },
+        {
+            "id": 102,
+            "name": "นางสาว พอมี",
+            "surname": "พอกิน",
+            "income": 25000,
+            "type": "ทั่วไป"
+        },
+        {
+            "id": 103,
+            "name": "นาย สมชาย",
+            "surname": "รักดี",
+            "income": 6500,
+            "type": "ทั่วไป "
+        },
+        {
+            "id": 104,
+            "name": "นาง สมหญิง",
+            "surname": "ขยัน",
+            "income": 50000,
+            "type": "ทั่วไป "
+        },
+        {
+            "id": 105,
+            "name": "นาย รวย",
+            "surname": "ล้นฟ้า",
+            "income": 120000,
+            "type": "รายได้สูง"
+        },
+        {
+            "id": 106,
+            "name": "เสี่ย เบิ้ม",
+            "surname": "เป๋าตุง",
+            "income": 60000,
+            "type": "รายได้สูง"
+        },
+        {
+            "id": 107,
+            "name": "คุณนาย",
+            "surname": "สายเปย์",
+            "income": 300000,
+            "type": "รายได้สูง"
+        },
+        {
+            "id": 108,
+            "name": "ท่านประธาน",
+            "surname": "งานดี",
+            "income": 50000,
+            "type": "รายได้สูง "
+        },
+        {
+            "id": 109,
+            "name": "นาย มั่นคง",
+            "surname": "ยั่งยืน",
+            "income": 80000,
+            "type": "รายได้สูง"
+        },
+        {
+            "id": 110,
+            "name": "นางสาว ร่ำรวย",
+            "surname": "สวยเก๋",
+            "income": 95000,
+            "type": "รายได้สูง"
+        }
+    ],
+    "claims": [
+        {
+            "request_id": 20454727,
+            "claimant_id": 101,
+            "date": "2026-02-07",
+            "status": "อนุมัติแล้ว"
+        },
+        {
+            "request_id": 27768111,
+            "claimant_id": 102,
+            "date": "2026-02-07",
+            "status": "อนุมัติแล้ว"
+        },
+        {
+            "request_id": 32552923,
+            "claimant_id": 108,
+            "date": "2026-02-07",
+            "status": "อนุมัติแล้ว"
+        },
+        {
+            "request_id": 60451440,
+            "claimant_id": 101,
+            "date": "2026-02-07",
+            "status": "รอตรวจสอบ"
+        },
+        {
+            "request_id": 36989576,
+            "claimant_id": 105,
+            "date": "2026-02-07",
+            "status": "รอตรวจสอบ"
+        }
+    ],
+    "compensations": [
+        {
+            "request_id": 20454727,
+            "amount": 6500,
+            "calc_date": "2026-02-07"
+        },
+        {
+            "request_id": 27768111,
+            "amount": 20000,
+            "calc_date": "2026-02-07"
+        },
+        {
+            "request_id": 32552923,
+            "amount": 10000.0,
+            "calc_date": "2026-02-07"
+        }
+    ]
+}

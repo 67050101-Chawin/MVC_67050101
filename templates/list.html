@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-primary">🗳️ รายการคำขอเยียวยา</h2>
+    <a href="/create" class="btn btn-primary shadow-sm">+ ยื่นคำขอใหม่</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white fw-bold py-3">📋 รายการสถานะคำขอ</div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>รหัสคำขอ</th>
+                            <th>รหัส ปชช.</th>
+                            <th>วันที่</th>
+                            <th>สถานะ</th>
+                            <th>ดำเนินการ</th> </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in claims %}
+                        <tr>
+                            <td class="fw-bold text-primary">#{{ c.request_id }}</td>
+                            <td>{{ c.claimant_id }}</td>
+                            <td>{{ c.date }}</td>
+                            <td>
+                                {% if c.status == 'รอตรวจสอบ' %}
+                                    <span class="badge bg-warning text-dark">รอตรวจสอบ</span>
+                                {% else %}
+                                    <span class="badge bg-success">อนุมัติแล้ว</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if session.get('role') == 'officer' and c.status == 'รอตรวจสอบ' %}
+                                <a href="/approve/{{ c.request_id }}" class="btn btn-sm btn-outline-success fw-bold">
+                                    ✅ อนุมัติ
+                                </a>
+                                {% elif c.status == 'อนุมัติแล้ว' %}
+                                <small class="text-muted">เสร็จสิ้น</small>
+                                {% else %}
+                                <small class="text-muted">-</small>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white fw-bold">
+                💰 รายการที่อนุมัติแล้ว
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for comp in compensations %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>#{{ comp.request_id }}</span>
+                    <span class="fw-bold text-success">฿{{ "{:,.2f}".format(comp.amount) }}</span>
+                </li>
+                {% else %}
+                <li class="list-group-item text-center text-muted">ยังไม่มีรายการอนุมัติ</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

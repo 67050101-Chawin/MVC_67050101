@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="mb-4">
+            <a href="/" class="text-decoration-none text-muted">
+                <i class="bi bi-arrow-left"></i> ← กลับหน้าหลัก
+            </a>
+        </div>
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white py-4">
+                <h3 class="mb-0 fw-bold">📝 ยื่นคำขอเยียวยาใหม่</h3>
+                <p class="mb-0 opacity-75">กรุณาเลือกผู้ยื่นคำขอเพื่อทำการคำนวณตามนโยบาย</p>
+            </div>
+            <div class="card-body p-5">
+                <form method="POST">
+                    <div class="mb-5">
+                        <label for="claimantSelect" class="form-label fw-bold fs-5 mb-3">เลือกรายชื่อผู้ยื่นคำขอ:</label>
+                        <select class="form-select form-select-lg py-3" name="claimant_id" id="claimantSelect" required>
+                            <option value="" selected disabled>-- กรุณาเลือกรายชื่อ --</option>
+                            {% for person in claimants %}
+                            <option value="{{ person.id }}">
+                                ID: {{ person.id }} | คุณ{{ person.name }} {{ person.surname }} (รายได้: {{ "{:,.0f}".format(person.income) }} บาท/เดือน) - [กลุ่ม: {{ person.type }}]
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg py-3 fs-5 fw-bold">
+                            🚀 กำลังคำนวณและรอยืนยันผลการเยียวยา
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
